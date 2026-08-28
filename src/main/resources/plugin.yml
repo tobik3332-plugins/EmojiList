@@ -1,0 +1,20 @@
+name: EmojiList
+version: '1.0'
+main: cz.emojilist.EmojiList
+api-version: '1.20'
+author: YourName
+description: Plugin pro zobrazení seznamu emojis v knize.
+
+permissions:
+  emojis.open:
+    description: Umožňuje otevřít knihu emojis.
+    default: true
+  emojis.admin.reload:
+    description: Umožňuje reloadovat plugin.
+    default: op
+
+commands:
+  emojis:
+    description: Hlavní příkaz pro zobrazení knížky s emojis.
+    permission: emojis.open
+    usage: /emojis [reload]
