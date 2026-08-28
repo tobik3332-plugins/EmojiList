@@ -1,0 +1,33 @@
+# ========================================================
+#                    EmojiList Config
+# ========================================================
+# Permise pro tento plugin:
+# - emojis.open        -> Oprávnění pro otevření knihy (/emojis)
+# - emojis.admin.reload -> Oprávnění pro reload pluginu (/emojis reload)
+#
+# Podpora barev:
+# Podporuje MiniMessage formát (<red>, <bold>, <#ff5555>, <gradient:red:blue>)
+# i klasické legacy barvy (&a, &b, &c atd.).
+# ========================================================
+
+messages:
+  no-permission: "&cNa tento příkaz nemáš dostatečná oprávnění!"
+  reload-success: "&aKonfigurace pluginu EmojiList byla úspěšně načtena."
+  only-players: "&cTento příkaz může použít pouze hráč ve hře."
+
+# Nastavení stránek knihy (vyhodnocuje se přesně podle tvé struktury)
+book-gui:
+  page1:
+    - "<bold><gradient:gold:yellow>-- EMOJI LIST --</gradient></bold>"
+    - ""
+    - "&7Zde je seznam dostupných emojis:"
+    - ""
+    - "&e:smile: &8-> &a😀"
+    - "&e:heart: &8-> &c❤️"
+    - "&e:fire:  &8-> &6🔥"
+  page2:
+    - "<bold><blue>-- STRÁNKA 2 --</blue></bold>"
+    - ""
+    - "&e:star:  &8-> &e⭐"
+    - "&e:check: &8-> &2✔"
+    - "&e:cross: &8-> &4✖"
