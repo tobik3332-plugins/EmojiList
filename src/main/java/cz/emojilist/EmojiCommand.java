@@ -5,12 +5,15 @@ import net.kyori.adventure.text.Component;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class EmojiCommand implements CommandExecutor {
+public class EmojiCommand implements CommandExecutor, TabCompleter {
 
     private final EmojiList plugin;
 
@@ -44,7 +47,6 @@ public class EmojiCommand implements CommandExecutor {
 
         List<Component> pages = plugin.getConfigManager().getBookPages();
 
-        // Otevře čistě virtuální GUI knihu bez zápisu do inventáře
         Book emojiBook = Book.book(
                 Component.text("Emoji List"),
                 Component.text("Server"),
@@ -53,5 +55,19 @@ public class EmojiCommand implements CommandExecutor {
 
         player.openBook(emojiBook);
         return true;
+    }
+
+    // Našeptávač (Tab-Completion)
+    @Override
+    public @Nullable List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command command, @NotNull String alias, @NotNull String[] args) {
+        List<String> completions = new ArrayList<>();
+
+        if (args.length == 1) {
+            if (sender.hasPermission("emojis.admin.reload") && "reload".startsWith(args[0].toLowerCase())) {
+                completions.add("reload");
+            }
+        }
+
+        return completions;
     }
 }
